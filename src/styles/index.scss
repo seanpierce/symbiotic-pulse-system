@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+	color: #333;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .button {
+        display: inline-block;
+        border: solid 1px #333;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+}
+
+.voice {
+    border: solid 2px #333;
+    padding: 0.5em;
+    width: 400px;
+}
+
+@import './modules/module.scss';
+@import './sliders.scss';

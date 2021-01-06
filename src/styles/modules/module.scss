@@ -1,0 +1,48 @@
+.module {
+	margin: 1em auto;
+	border-bottom: solid 1px lightgray;
+    position: relative;
+
+    .module__title {
+        margin-bottom: 0.5em;
+    }
+    
+    .module__label {
+        color: lightgray;
+        font-size:  0.75em;
+        vertical-align: top;
+    }
+
+    .module__column {
+        width: 48%;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 2%;
+
+        &.right {
+            margin-right: 0;
+            margin-left: 2%;
+        }
+    }
+
+    .module__controls {
+        margin-bottom: 0.5em;
+
+        img.module__wave {
+            height: 2em;
+            margin-right: 8px;
+            cursor: pointer;
+
+            &.selected {
+                border: solid 1px lightgray;
+            }
+        }
+    }
+
+    &.bpm {
+        display: inline-block;
+        border: solid 2px #333;
+        padding: 0.5em;
+        width: 400px;
+    }
+}

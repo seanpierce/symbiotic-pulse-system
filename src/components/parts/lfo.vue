@@ -11,17 +11,20 @@
 
         <FreqSlider 
             :freq="freq"
+            :displayFreq="displayFreq"
             :updateFreq="updateFreq"
             :max="100"
-            :step="0.1"
+            :step="1"
         />
 
         <FreqSlider 
             :title="'gain'"
             :freq="gain"
+            :displayFreq="displayGain"
             :updateFreq="updateGain"
-            :max="100"
-            :step="0.1"
+            :max="gainMax"
+            :min="gainMin"
+            :step="gainStep"
         />
     </div>
 </template>
@@ -38,18 +41,27 @@ export default {
     },
 
     props: {
+        wave: String,
+        freq: Number,
+        displayFreq: Number,
+        freqStep: Number,
+        gain: Number,
+        displayGain: Number,
+        gainStep: {
+            type: Number,
+            default: 1
+        },
+        gainMax: {
+            type: Number,
+            default: 100
+        },
+        gainMin: {
+            type: Number,
+            default: 0
+        },
         updateWave: Function,
         updateFreq: Function,
         updateGain: Function,
-        wave: {
-          default: 'square'
-        },
-        freq: {
-          default: '0'
-        },
-        gain: {
-          default: '0'
-        }
     }
 }
 </script>

@@ -1,5 +1,5 @@
 input[type="range"] {
-	margin: 2em 0;
+	margin: 1.5em 0;
     width: 100%; 
 	-webkit-appearance: none;
     background: transparent;
@@ -19,29 +19,29 @@ input[type="range"] {
 
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        border: 2px solid #555;
+        border: 2px solid #3D5A80;
         height: 25px;
         width: 12px;
-        background: #ffffff;
+        background: #3D5A80;
         cursor: pointer;
-        margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+        margin-top: -12px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
     }
 
     /* All the same stuff for Firefox */
     &::-moz-range-thumb {
-        border: 2px solid #555;
+        border: 2px solid #3D5A80;
         height: 25px;
         width: 12px;
-        background: #ffffff;
+        background: #3D5A80;
         cursor: pointer;
     }
 
     /* All the same stuff for IE */
     &::-ms-thumb {
-        border: 1px solid #555;
+        border: 1px solid #3D5A80;
         height: 25px;
         width: 12px;
-        background: #ffffff;
+        background: #3D5A80;
         cursor: pointer;
     }
 

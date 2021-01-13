@@ -1,7 +1,11 @@
 .module {
-	margin: 1em auto;
-	border-bottom: solid 1px lightgray;
+	padding: 0.5em;
+	border-bottom: solid 2px #333;
     position: relative;
+
+    &:last-child {
+        border-bottom: none;
+    }
 
     .module__title {
         margin-bottom: 0.5em;
@@ -34,7 +38,7 @@
             cursor: pointer;
 
             &.selected {
-                border: solid 1px lightgray;
+                background: #C5D5E4;
             }
         }
     }

@@ -1,0 +1,43 @@
+#voices {
+    padding: 1em;
+    white-space: nowrap;
+
+    .voice {
+        display: inline-block;
+        position: relative;
+        border: solid 2px #333;
+        width: 400px;
+        margin-bottom: 1em;
+        margin-right: 1em;
+    
+        .delete-voice {
+            position: absolute;
+            z-index: 10;
+            top: -0.5em;
+            right: -0.5em;
+            cursor: pointer;
+    
+            span {
+                font-size: 16px;
+                background: white;
+                border: solid 2px #333;
+                border-radius: 50%;
+                padding: 2px 4px;
+            }
+        }
+    }
+
+    #add-voice {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0.5em;
+    
+        span {
+            color: $dark-grey;
+            font-size: 16px;
+            padding: 6px;
+            border: solid 2px $dark-grey;
+            cursor: pointer;
+        }
+    }
+}

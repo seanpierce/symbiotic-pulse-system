@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <div v-if="loaded">
-      <Voice />
-      <BPM />
+      <Voices />
+      <Controls />
     </div>
-
     <div v-else class="start">
       <h1>SYMBIOTIC PULSE SYSTEM</h1>
       <div class="button" @click="init()">START</div>
@@ -13,15 +12,15 @@
 </template>
 
 <script>
-import Voice from '@/components/synth/voice'
-import BPM from '@/components/synth/bpm'
+import Voices from '@/components/voices'
+import Controls from '@/components/controls'
 
 export default {
   name: 'App',
 
   components: {
-    Voice,
-    BPM
+    Voices,
+    Controls
   },
 
   computed: {

@@ -1,7 +1,7 @@
 <template>
     <div class="module__controls">
         <div class="module__label">{{ title.toUpperCase() }}</div>
-        <div>{{ freq }}</div>
+        <div>{{ displayFreq || freq }}</div>
         <input type="range" :min="min" :max="max" :step="step" v-model="frequency" />
     </div>
 </template>
@@ -11,9 +11,9 @@ export default {
     
     props: {
         updateFreq: Function,
-        freq: {
-            default: '0'
-        },
+        freq: Number,
+        displayFreq: Number,
+
         title: {
             type: String,
             default: 'freq'
@@ -33,13 +33,20 @@ export default {
     },
 
     computed: {
+
         frequency: {
             get() {
-                return this.freq
+                if (this.stepIsInteger) return parseInt(this.freq)
+                else return parseFloat(this.freq)
             },
             set(value) {
-                this.updateFreq(value)
+                if (this.stepIsInteger) this.updateFreq(parseInt(value))
+                else this.updateFreq(parseFloat(value))
             }
+        },
+
+        stepIsInteger() {
+            return this.step % 1 === 0
         }
     }
 }

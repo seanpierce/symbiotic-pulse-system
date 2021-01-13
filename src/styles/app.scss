@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+	color: #333;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .button {
+        display: inline-block;
+        border: solid 1px #333;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+}
+
+#global-controls {
+    margin-top: 2em;
+}

@@ -219,7 +219,6 @@ export default class Voice {
                 this.vca.gain.value = value
                             
             this.properties.vca.gain = value
-            this.properties.vca.lastGain = value
         }
 
         this.UPDATE_VCA_LFO_TYPE = value => {

@@ -26,3 +26,36 @@
 #global-controls {
     padding: 1em;
 }
+
+#info-button {
+    cursor: pointer;
+    width: 24px;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+}
+
+#info {
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($color: white, $alpha: 0.9);
+
+    .info__content {
+        width: 98%;
+        max-width: 600px;
+        margin: 4em auto;
+        text-align: justify;
+
+        .info__back {
+            margin: 2em auto;
+            border: solid 1px #333;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}

@@ -10,7 +10,8 @@ export default new Vuex.Store({
     context: null,
     bpm: 120,
     id: 0,
-    voices: []
+    voices: [],
+    step: 0
   },
 
   mutations: {
@@ -32,6 +33,13 @@ export default new Vuex.Store({
 
     DELETE_VOICE_AT_INDEX: (state, index) => {
       state.voices.splice(index, 1)
+    },
+
+    STEP: (state) => {
+      if (state.step === 16)
+        state.step = 0
+
+      state.step ++
     }
   },
 
@@ -39,6 +47,7 @@ export default new Vuex.Store({
 
     init: ({ commit }) => {
       commit('SET_CONTEXT')
+      commit('CREATE_NEW_VOICE')
     },
 
     setBpm: ({ commit }, bpm) => {
@@ -57,6 +66,10 @@ export default new Vuex.Store({
         voice.DISCONNECT()
         commit('DELETE_VOICE_AT_INDEX', index)
       }
+    },
+
+    step: ({ commit }) => {
+      commit('STEP')
     }
   },
 

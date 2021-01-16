@@ -1,5 +1,5 @@
 <template>
-    <div id="global-controls" v-if="false">
+    <div id="global-controls">
         <BPM />
     </div>
 </template>

@@ -38,7 +38,7 @@
             cursor: pointer;
 
             &.selected {
-                background: #C5D5E4;
+                background: $secondary-blue;
             }
         }
     }
@@ -48,5 +48,28 @@
         border: solid 2px #333;
         padding: 0.5em;
         width: 400px;
+    }
+
+    &.envelope {
+
+        ul.trigger-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            list-style: none;
+            padding: 0;
+
+            li {
+                color: $primary-blue;
+                display: flex;
+                padding: 8px 6px;
+                margin-right: 4px;
+                cursor: pointer;
+                
+                &.selected {
+                    background: $secondary-blue;
+                }
+            }
+        }
     }
 }

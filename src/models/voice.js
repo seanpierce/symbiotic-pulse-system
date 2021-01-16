@@ -33,12 +33,19 @@ export default class Voice {
             },
             vca: {
                 gain: 1,
+                lastGain: 1,
                 lfo: {
                     type: 'sine',
                     frequency: 0,
                     gain: 0
                 }
-            }
+            },
+            env: {
+                attack: 0,
+                decay: 0.3,
+                trig: 1
+            },
+            step: 0
         }
 
         this.build()
@@ -104,6 +111,53 @@ export default class Voice {
         this.vcf_lfo.start()
         this.vca_lfo.start()
 
+        // trigger
+        this.TRIGGER = () => {
+            if (this.properties.env.trig === 1) {
+                this.UPDATE_VCA_GAIN(1)
+                return
+            }
+
+            let now = this.context.currentTime
+            let a = this.properties.env.attack
+            let d = this.properties.env.decay
+            let volume = this.properties.vca.gain
+
+            this.vca.gain.cancelScheduledValues(now);
+            this.vca.gain.setValueAtTime(0, now);
+            this.vca.gain.linearRampToValueAtTime(volume, now + a)
+            this.vca.gain.linearRampToValueAtTime(0, now + a + d)
+        }
+
+        this.STEP = () => {
+            // reset
+            if (this.properties.step === 16)
+                this.properties.step = 0
+
+            // increment
+            this.properties.step ++
+
+            // hold
+            if (this.properties.env.trig === 1)
+                return
+
+            // 1/16
+            if (this.properties.env.trig === 0.0625)
+                return this.TRIGGER()
+
+            // 1/8
+            if (this.properties.env.trig === 0.125) {
+                if ([1, 3, 5, 7, 9, 11, 13, 15].indexOf(this.properties.step) > -1)
+                    return this.TRIGGER()
+            }
+
+            // 1/4
+            if (this.properties.env.trig === 0.25) {
+                if ([1, 5, 9, 13].indexOf(this.properties.step) > -1)
+                    return this.TRIGGER()
+            }
+        }
+
         // update methods
         this.UPDATE_VCO_TYPE = value => {
             this.vco.type = value
@@ -161,8 +215,11 @@ export default class Voice {
         }
 
         this.UPDATE_VCA_GAIN = value => {
-            this.vca.gain.value = value
+            if (this.properties.env.trig === 1)
+                this.vca.gain.value = value
+                            
             this.properties.vca.gain = value
+            this.properties.vca.lastGain = value
         }
 
         this.UPDATE_VCA_LFO_TYPE = value => {
@@ -178,6 +235,21 @@ export default class Voice {
         this.UPDATE_VCA_LFO_GAIN = value => {
             this.vca_lfo_gain.gain.value = value
             this.properties.vca.lfo.gain = value
+        },
+
+        this.UPDATE_ENV_ATTACK = value => {
+            this.properties.env.attack = value
+        }
+
+        this.UPDATE_ENV_DECAY = value => {
+            this.properties.env.decay = value
+        }
+
+        this.UPDATE_ENV_TRIG = value => {
+            this.properties.env.trig = value
+            
+            if (value === 1)
+                this.UPDATE_VCA_GAIN(1)
         }
 
         // kill it

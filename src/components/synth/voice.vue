@@ -9,6 +9,7 @@
         <VCO :voice="voice" />
         <VCF :voice="voice" />
         <VCA :voice="voice" />
+        <ENV :voice="voice" />
     </div>
 </template>
 
@@ -16,13 +17,15 @@
 import VCO from '@/components/synth/vco'
 import VCF from '@/components/synth/vcf'
 import VCA from '@/components/synth/vca'
+import ENV from '@/components/synth/env'
 
 export default {
 
     components: {
         VCO,
         VCF,
-        VCA
+        VCA,
+        ENV
     },
 
     props: {

@@ -20,13 +20,32 @@ export default {
                 return this.$store.state.bpm
             },
             set(value) {
-                this.$store.dispatch('setBpm', value)  
+                this.$store.dispatch('setBpm', parseInt(value))
             }
         },
 
         milliSeconds() {
-            return this.$store.getters.milliseconds
+            return (60000 / this.$store.state.bpm) * 0.25
         }
+    },
+
+    methods: {
+        
+        run() {
+            setTimeout(() => {
+                this.step()
+            }, this.milliSeconds);
+        },
+
+        step() {
+            this.$store.dispatch('step')
+            this.run()
+        }
+    },
+
+    mounted() {
+
+        this.run()
     }
 }
 </script>

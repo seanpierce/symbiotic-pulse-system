@@ -1,6 +1,7 @@
 <template>
    <div class="lfo module__column right">
-        <div class="module__title">
+        <div class="module__title"
+            data-title="An LFO is an oscillator that operates at a low frequency. Typically, an LFO produces a signal that sounds more like clicks, or is possibly inaudible. Here, we use LFO's to modulate other parameters.">
             LFO
         </div>
 

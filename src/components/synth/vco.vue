@@ -1,7 +1,8 @@
 <template>
     <div class="module vco">
         <div class="module__column">
-            <div class="module__title">
+            <div class="module__title"
+                data-title="VCOs are used in synthesizers to generate a waveform whose pitch can be adjusted by a voltage determined by a musical keyboard or other input. This is the sound source.">
                 VCO
             </div>
 

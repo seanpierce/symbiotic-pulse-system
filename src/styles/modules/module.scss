@@ -9,6 +9,16 @@
 
     .module__title {
         margin-bottom: 0.5em;
+
+        // &[data-title]:hover::after {
+        //     content: attr(data-title);
+        //     position: absolute;
+        //     font-size: 1em;
+        //     color: white;
+        //     background-color: #333;
+        //     z-index: 10;
+        //     padding: 8px;
+        // }
     }
     
     .module__label {

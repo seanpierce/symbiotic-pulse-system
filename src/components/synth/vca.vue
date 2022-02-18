@@ -1,7 +1,8 @@
 <template>
     <div class="module vca">
         <div class="module__column">
-            <div class="module__title">
+            <div class="module__title"
+                data-title="A VCA is an electronic amplifier that varies its gain depending on a control signal. VCAs have many applications, including audio level compression, synthesizers and amplitude modulation. This one operates as our volumne for a particular voice.">
                 VCA
             </div>
 

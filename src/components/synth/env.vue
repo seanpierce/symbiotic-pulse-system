@@ -1,6 +1,7 @@
 <template>
     <div class="module envelope">
-        <div class="module__title">
+        <div class="module__title"
+            data-title="Envelope Generators are circuits that, when triggered, produce a contoured signal over time. This controls the rise and fall (attack and decay) of a particular voice.">
             ENV
         </div>
 

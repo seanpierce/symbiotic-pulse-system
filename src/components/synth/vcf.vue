@@ -1,7 +1,8 @@
 <template>
     <div class="module vcf">
         <div class="module__column">
-            <div class="module__title">
+            <div class="module__title"
+                data-title="A VCF is an electronic filter whose operating characteristics (primarily cutoff frequency) can be set by an input control voltage. This colors the sound.">
                 VCF
             </div>
 
@@ -22,6 +23,7 @@
                 :freq="voice.properties.vcf.resonance"
                 :updateFreq="voice.UPDATE_VCF_RESO"
                 :max="100"
+                title="Res"
             />
         </div>
 

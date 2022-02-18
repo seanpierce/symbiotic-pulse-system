@@ -32,8 +32,8 @@ export default class Voice {
                 }
             },
             vca: {
-                gain: 1,
-                lastGain: 1,
+                gain: 0.1,
+                lastGain: 0.1,
                 lfo: {
                     type: 'sine',
                     frequency: 0,
@@ -81,9 +81,8 @@ export default class Voice {
         })
 
         // VCA
-        this.vca = this.context.createGain({
-            gain: this.properties.vca.gain
-        })
+        this.vca = this.context.createGain()
+        this.vca.gain.setValueAtTime(this.properties.vca.gain, this.context.currentTime)
 
         // VCA_LFO
         this.vca_lfo = this.context.createOscillator()
